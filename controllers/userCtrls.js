@@ -7,7 +7,7 @@ const register = (req, res) => {
   db.User.findOne({ id: req.body.id }, (err, userExists) => {
     if (userExists) {
       res.status(200).json({
-        msg: "user id already exist",
+        message: "user id already exist",
       });
     } else {
       db.User.create(req.body, (err, createUser) => {
@@ -29,7 +29,7 @@ const signin = (req, res) => {
         res.status(200).json(foundUser);
       } else {
         res.status(404).json({
-          error: err.message,
+          message: "ID do not match",
         });
       }
     } else {
