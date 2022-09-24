@@ -4,16 +4,16 @@ const cors = require("cors");
 const session = require("express-session");
 const SESSION_SECRET = process.env.SESSION_SECRET;
 
-const whitelist = ["http://localhost:3000"];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
+// const whitelist = ["http://localhost:3000"];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
 
 require("dotenv").config();
 /* == Port == */
@@ -35,13 +35,13 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(
-//   session({
-//     secret: SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: false,
-//   })
-// );
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 /* == Routes == */
 
