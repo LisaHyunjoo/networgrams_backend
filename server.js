@@ -40,8 +40,9 @@ app.use(
 
 /* == Routes == */
 app.use("/networgram", routes.post);
-app.use("/users", routes.user);
+app.use("/networgram/user", routes.user);
+app.use("/networgram/post/:id/comment", routes.comment);
 
 app.listen(PORT, () => {
-  console.log("celebrations happening on port", PORT);
+  console.log("You are success to connect: ", PORT);
 });
