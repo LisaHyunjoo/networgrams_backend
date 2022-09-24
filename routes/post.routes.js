@@ -4,6 +4,7 @@ const router = express.Router();
 const ctrls = require("../controllers");
 
 // router
+router.get("/", (req, res) => {});
 router.get("/post", ctrls.posts.index);
 router.post("/post", ctrls.posts.create);
 router.delete("/post/:id", ctrls.posts.destroy);
