@@ -1,9 +1,11 @@
 /* == External Modules == */
 const express = require("express");
+const app = express();
 const cors = require("cors");
 const session = require("express-session");
+require("dotenv").config();
 const SESSION_SECRET = process.env.SESSION_SECRET;
-
+const PORT = process.env.PORT || 3003;
 // const whitelist = ["http://localhost:3000"];
 // const corsOptions = {
 //   origin: function (origin, callback) {
@@ -15,17 +17,9 @@ const SESSION_SECRET = process.env.SESSION_SECRET;
 //   },
 // };
 
-require("dotenv").config();
-/* == Port == */
-const PORT = process.env.PORT || 3003;
-
 /* == Internal Modules == */
 const routes = require("./routes");
 
-/* == Express Instance == */
-const app = express();
-
-/* == DB connection == */
 require("./config/db.connection");
 
 /* == Middleware == */
@@ -33,19 +27,20 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: "secret",
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
 );
 
 /* == Routes == */
-
 app.use("/networgram", routes.post);
+app.use("/users", routes.user);
 
 app.listen(PORT, () => {
   console.log("celebrations happening on port", PORT);
