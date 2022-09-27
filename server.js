@@ -5,7 +5,7 @@ const cors = require("cors");
 const session = require("express-session");
 require("dotenv").config();
 const SESSION_SECRET = process.env.SESSION_SECRET;
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 // const whitelist = ["http://localhost:3000"];
 // const corsOptions = {
 //   origin: function (origin, callback) {
