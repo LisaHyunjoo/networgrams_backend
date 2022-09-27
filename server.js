@@ -39,6 +39,9 @@ app.use(
 );
 
 /* == Routes == */
+app.get("/", (req, res) => {
+  res.json();
+});
 app.use("/networgram", routes.post);
 app.use("/networgram/user", routes.user);
 app.use("/networgram/post/:id/comment", routes.comment);
