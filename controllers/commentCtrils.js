@@ -1,7 +1,7 @@
 const db = require("../models");
 
 const index = (req, res) => {
-  db.Comment.find({}, (err, comment) => {
+  db.Comments.find({}, (err, comment) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json({
       comment,
@@ -11,14 +11,14 @@ const index = (req, res) => {
 };
 
 const create = (req, res) => {
-  db.Comment.create(req.body, (err, createdComment) => {
+  db.Comments.create(req.body, (err, createdComment) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json(createdComment);
   });
 };
 
 const destroy = (req, res) => {
-  db.Comment.findByIdAndDelete(req.params.id, (err, deletedComment) => {
+  db.Comments.findByIdAndDelete(req.params.id, (err, deletedComment) => {
     if (!deletedComment)
       return res.status(404).json({ error: "Comment not found" });
     if (err) return res.status(404).json({ error: err.message });
@@ -29,7 +29,7 @@ const destroy = (req, res) => {
 };
 
 const update = (req, res) => {
-  db.Comment.findByIdAndUpdate(
+  db.Comments.findByIdAndUpdate(
     req.params.id,
     {
       $set: req.body,

@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const register = (req, res) => {
   const salt = bcrypt.genSaltSync(10);
   req.body.password = bcrypt.hashSync(req.body.password, salt);
-  db.User.findOne({ id: req.body.id }, (err, userExists) => {
+  db.Users.findOne({ id: req.body.id }, (err, userExists) => {
     if (userExists) {
       res.status(200).json({
         message: "user id already exist",
@@ -18,7 +18,7 @@ const register = (req, res) => {
 };
 
 const signin = (req, res) => {
-  db.User.findOne({ id: req.body.id }, (err, foundUser) => {
+  db.Users.findOne({ id: req.body.id }, (err, foundUser) => {
     if (foundUser) {
       const validLogin = bcrypt.compareSync(
         req.body.password,
