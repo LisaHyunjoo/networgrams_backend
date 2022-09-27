@@ -27,6 +27,15 @@ const destroy = (req, res) => {
   });
 };
 
+const edit = (req, res) => {
+  db.Post.findById(req.params.id, (err, editPost) => {
+    if (err) return req.status(404).json({ error: err.message });
+    return req.status(200).json({
+      message: "edit",
+    });
+  });
+};
+
 const update = (req, res) => {
   db.Post.findByIdAndUpdate(
     req.params.id,
@@ -47,5 +56,6 @@ module.exports = {
   index,
   create,
   destroy,
+  edit,
   update,
 };
