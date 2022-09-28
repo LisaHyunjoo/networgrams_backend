@@ -1,5 +1,5 @@
 {
-  "name": "networgram-backend",
+  "name": "networgrams_backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,9 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielJoung/networgrams_backend.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielJoung/networgrams_backend/issues"
+  },
+  "homepage": "https://github.com/DanielJoung/networgrams_backend#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
