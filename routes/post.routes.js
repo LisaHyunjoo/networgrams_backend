@@ -27,7 +27,9 @@ const authRequiredCreate = (req, res, next) => {
 };
 
 // router
-// router.get("/", (req, res) => {});
+router.get("/", (req, res) => {
+  res.json();
+});
 router.get("/post", ctrls.posts.index);
 router.post("/post", ctrls.posts.create);
 router.delete("/post/:id", ctrls.posts.destroy);
