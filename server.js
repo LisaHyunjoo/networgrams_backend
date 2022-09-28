@@ -6,16 +6,16 @@ const session = require("express-session");
 require("dotenv").config();
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const PORT = process.env.PORT || 3001;
-const whitelist = ["http://localhost:3003", process.env.FRONTEND_URL];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
+// const whitelist = ["http://localhost:3003", process.env.FRONTEND_URL];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
 
 /* == Internal Modules == */
 const routes = require("./routes");
@@ -23,7 +23,7 @@ const routes = require("./routes");
 require("./config/db.connection");
 
 /* == Middleware == */
-app.use(cors(corsOptions));
+app.use(cors("*"));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
