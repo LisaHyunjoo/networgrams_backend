@@ -2,18 +2,18 @@ const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
   name: {
-    type: [String],
+    type: String,
     required: true,
   },
   like: {
     type: Number,
   },
   comment: {
-    type: [String],
+    type: String,
   },
   content: {
     type: String,
-    required: true,
+    // required: true,
   },
   Image: {
     type: String,
