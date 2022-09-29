@@ -4,9 +4,9 @@ const router = express.Router();
 const ctrls = require("../controllers");
 
 // router
-router.get("/", ctrls.posts.index);
-router.post("/", ctrls.posts.create);
-router.delete("/:id", ctrls.posts.destroy);
-router.put("/:id", ctrls.posts.update);
+router.get("/", ctrls.comments.index);
+router.post("/", ctrls.comments.create);
+router.delete("/:id", ctrls.comments.destroy);
+router.put("/:id", ctrls.comments.update);
 
 module.exports = router;
