@@ -10,7 +10,7 @@ const register = (req, res) => {
         message: "user id already exist",
       });
     } else {
-      db.User.create(req.body, (err, createUser) => {
+      db.Users.create(req.body, (err, createUser) => {
         res.status(200).json(createUser);
       });
     }
