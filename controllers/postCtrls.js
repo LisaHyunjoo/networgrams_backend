@@ -29,10 +29,8 @@ const destroy = (req, res) => {
 
 const edit = (req, res) => {
   db.Posts.findById(req.params.id, (err, editPost) => {
-    if (err) return req.status(404).json({ error: err.message });
-    return req.status(200).json({
-      message: "edit",
-    });
+    if (err) return res.status(404).json({ error: err.message });
+    return res.status(200).json({ editPost });
   });
 };
 
