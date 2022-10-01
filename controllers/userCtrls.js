@@ -31,13 +31,14 @@ const signin = (req, res) => {
         req.session.currentUser = foundUser;
         res.status(200).json(foundUser);
       } else {
-        res.status(404).json({
-          message: "ID do not match",
+        res.status(200).json({
+          message: "ID or Password do not match",
+          user: req.session.currentUser,
         });
       }
     } else {
       res.status(404).json({
-        error: err.message,
+        error: "ID or Password do not match",
       });
     }
   });
