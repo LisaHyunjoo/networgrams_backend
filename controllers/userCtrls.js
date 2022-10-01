@@ -7,7 +7,7 @@ const register = (req, res) => {
   db.Users.findOne({ id: req.body.id }, (err, userExists) => {
     if (userExists) {
       res.status(200).json({
-        user: req.session.currentUser,
+        // user: req.session.currentUser,
         message: "user id already exist",
       });
     } else {
