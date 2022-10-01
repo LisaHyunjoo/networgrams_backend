@@ -8,9 +8,12 @@ router.get("/register", (req, res) => {
 });
 router.post("/register", ctrls.users.register);
 router.get("/signin", (req, res) => {
-  res.json();
+  res.json({
+    user: res.session.currentUser,
+  });
 });
 router.post("/signin", ctrls.users.signin);
+
 router.get("/signout", ctrls.users.signout);
 
 module.exports = router;

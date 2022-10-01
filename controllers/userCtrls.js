@@ -7,11 +7,14 @@ const register = (req, res) => {
   db.Users.findOne({ id: req.body.id }, (err, userExists) => {
     if (userExists) {
       res.status(200).json({
+        user: req.session.currentUser,
         message: "user id already exist",
       });
     } else {
       db.Users.create(req.body, (err, createUser) => {
-        res.status(200).json(createUser);
+        res.status(200).json({
+          createUser,
+        });
       });
     }
   });
@@ -28,13 +31,14 @@ const signin = (req, res) => {
         req.session.currentUser = foundUser;
         res.status(200).json(foundUser);
       } else {
-        res.status(404).json({
-          message: "ID do not match",
+        res.status(200).json({
+          message: "ID or Password do not match",
+          user: req.session.currentUser,
         });
       }
     } else {
       res.status(404).json({
-        error: err.message,
+        error: "ID or Password do not match",
       });
     }
   });
