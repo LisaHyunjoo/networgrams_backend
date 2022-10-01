@@ -11,14 +11,6 @@ const authRequired = (req, res, next) => {
   }
 };
 
-const authRequiredCreate = (req, res, next) => {
-  if (req.session.currentUser) {
-    next();
-  } else {
-    res.redirect(``);
-  }
-};
-
 // router
 router.get("/", (req, res) => {
   res.json();

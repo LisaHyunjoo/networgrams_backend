@@ -1,7 +1,8 @@
 const db = require("../models");
 
+const post = db.Posts.find(req.params.id);
 const index = (req, res) => {
-  db.Comments.find(req.params.id, (err, comment) => {
+  db.Comments.find({ post }, (err, comment) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json({
       comment,
