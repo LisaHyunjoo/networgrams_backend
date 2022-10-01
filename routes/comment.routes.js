@@ -7,6 +7,7 @@ const ctrls = require("../controllers");
 router.get("/", ctrls.comments.index);
 router.post("/", ctrls.comments.create);
 router.delete("/:id", ctrls.comments.destroy);
+router.get("/:id", ctrls.comments.show);
 router.put("/:id", ctrls.comments.update);
 
 module.exports = router;

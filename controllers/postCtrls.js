@@ -27,6 +27,13 @@ const destroy = (req, res) => {
   });
 };
 
+const show = async (req, res) => {
+  const post = await db.Posts.findById(req.params.editPost);
+  res.status(200).json({
+    post,
+  });
+};
+
 const edit = (req, res) => {
   db.Posts.findById(req.params.id, (err, editPost) => {
     if (err) return res.status(404).json({ error: err.message });
@@ -56,4 +63,5 @@ module.exports = {
   destroy,
   edit,
   update,
+  show,
 };
