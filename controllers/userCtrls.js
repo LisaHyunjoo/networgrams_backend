@@ -7,7 +7,7 @@ const register = (req, res) => {
   db.Users.findOne({ id: req.body.id }, (err, userExists) => {
     if (userExists) {
       res.status(200).json({
-        // user: req.session.currentUser,
+        user: req.session.currentUser,
         message: "user id already exist",
       });
     } else {
@@ -33,7 +33,8 @@ const signin = (req, res) => {
       } else {
         res.status(200).json({
           message: "ID or Password do not match",
-          user: req.session.currentUser,
+          // user: req.session.currentUser,
+          foundUser,
         });
       }
     } else {
