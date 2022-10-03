@@ -28,18 +28,17 @@ const signin = (req, res) => {
         foundUser.password
       );
       if (validLogin) {
-        req.session.currentUser = foundUser;
-        res.status(200).json(foundUser);
+        res.status(200).json({ success: "Success", foundUser });
       } else {
         res.status(200).json({
           message: "ID or Password do not match",
-          // user: req.session.currentUser,
-          foundUser,
+          fail: "Fail",
         });
       }
     } else {
       res.status(404).json({
         error: "ID or Password do not match",
+        fail: "Fail",
       });
     }
   });
