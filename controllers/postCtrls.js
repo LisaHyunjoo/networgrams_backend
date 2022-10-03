@@ -5,6 +5,7 @@ const index = (req, res) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json({
       post,
+      id: req.params._id,
       requestedAt: new Date().toLocaleDateString(),
     });
   });
@@ -27,10 +28,14 @@ const destroy = (req, res) => {
   });
 };
 
-const show = async (req, res) => {
-  const post = await db.Posts.findById(req.params.editPost);
-  res.status(200).json({
-    post,
+const show = (req, res) => {
+  db.Posts.findById(req.params.id, (err, showPost) => {
+    if (err) return res.status(404).json({ error: err.message });
+    return res.status(200).json({
+      showPost,
+      id: req.params.id,
+      message: "success",
+    });
   });
 };
 

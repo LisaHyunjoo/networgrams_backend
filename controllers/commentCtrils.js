@@ -18,6 +18,7 @@ const show = (req, res) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json({
       commentsId,
+      id: req.params.id,
     });
   });
 };
