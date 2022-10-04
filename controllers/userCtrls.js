@@ -44,6 +44,8 @@ const signin = (req, res) => {
   });
 };
 
+const profile = (req, res) => {};
+
 const signout = (req, res) => {
   req.session.destroy(() => {
     req.status(200).json({

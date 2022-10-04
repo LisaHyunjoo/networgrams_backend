@@ -5,7 +5,7 @@ const index = (req, res) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json({
       post,
-      id: req.params._id,
+
       requestedAt: new Date().toLocaleDateString(),
     });
   });
@@ -33,8 +33,6 @@ const show = (req, res) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json({
       showPost,
-      id: req.params.id,
-      message: "success",
     });
   });
 };

@@ -2,14 +2,16 @@ const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
   name: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Users",
   },
   like: {
     type: Number,
     default: 0,
   },
   comment: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Comments",
   },
   content: {
     type: String,
