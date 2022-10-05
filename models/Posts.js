@@ -11,11 +11,14 @@ const commentSchema = new mongoose.Schema({
 });
 
 const postSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    // ref: "Users"
+  },
   like: {
     type: Number,
     default: 0,
   },
-  comment: [commentSchema],
 
   content: {
     type: String,
@@ -26,10 +29,7 @@ const postSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-  },
-  name: {
-    type: String,
-  },
+  }
 });
 
 const Posts = mongoose.model("Posts", postSchema);
