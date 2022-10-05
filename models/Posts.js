@@ -19,7 +19,7 @@ const postSchema = new mongoose.Schema({
     type: String,
   },
   name: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
   },
 });
 
