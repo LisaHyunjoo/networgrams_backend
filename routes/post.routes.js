@@ -12,6 +12,7 @@ router.post("/post", ctrls.posts.create);
 router.delete("/post/:id", ctrls.posts.destroy);
 router.get("/post/:id", ctrls.posts.show);
 router.get("/post/:id/edit", ctrls.posts.edit);
+router.get("/post/:id", ctrls.posts.comment);
 router.put("/post/:id", ctrls.posts.update);
 
 module.exports = router;

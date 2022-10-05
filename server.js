@@ -32,7 +32,7 @@ app.use(
 
 app.use("/networgram", routes.post);
 app.use("/networgram/user", routes.user);
-app.use("/networgram/post/:id/comment", routes.comment);
+// app.use("/networgram/post/:id/comment", routes.comment);
 
 app.listen(PORT, () => {
   console.log("You are success to connect: ", PORT);
