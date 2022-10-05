@@ -14,6 +14,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  post:[{
+		type: mongoose.Schema.Types.ObjectId,
+        ref: "Post"
+	}],
+	like:[{
+		type: mongoose.Schema.Types.ObjectId,
+        ref: "Post"
+	}],
+	comment:[{
+		type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
+  }]
 });
 
 const Users = mongoose.model("Users", userSchema);
