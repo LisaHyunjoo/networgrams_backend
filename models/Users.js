@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+<<<<<<< HEAD
   post:[{
 		type: mongoose.Schema.Types.ObjectId,
         ref: "Post"
@@ -26,6 +27,9 @@ const userSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
   }]
+=======
+  post: { type: [mongoose.Schema.Types.ObjectId] },
+>>>>>>> 002a8510cdb425ddbaeadc260346494bd1032b16
 });
 
 const Users = mongoose.model("Users", userSchema);
