@@ -28,23 +28,21 @@ const signin = (req, res) => {
         foundUser.password
       );
       if (validLogin) {
-        res.status(200).json({ success: "Success", foundUser });
+        res.status(200).json({
+          foundUser,
+        });
       } else {
         res.status(200).json({
           message: "ID or Password do not match",
-          fail: "Fail",
         });
       }
     } else {
       res.status(404).json({
         error: "ID or Password do not match",
-        fail: "Fail",
       });
     }
   });
 };
-
-const profile = (req, res) => {};
 
 const signout = (req, res) => {
   req.session.destroy(() => {
