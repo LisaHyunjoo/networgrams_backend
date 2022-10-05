@@ -1,5 +1,15 @@
 const mongoose = require("mongoose");
 
+const commentSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+});
+
 const postSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -9,10 +19,7 @@ const postSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  comment: [{
-		type: String,
-        // ref: "Comments"
-	}],
+
   content: {
     type: String,
     required: true,

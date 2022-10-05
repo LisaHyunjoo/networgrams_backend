@@ -1,3 +1,4 @@
+const { comments } = require(".");
 const db = require("../models");
 
 const index = (req, res) => {
@@ -49,6 +50,18 @@ const show = (req, res) => {
   });
 };
 
+const comment = (req, res) => {
+  db.Posts.insertMany(
+    { id: req.params.id, comment: [{ type: String }] },
+    (err, showComment) => {
+      if (err) return res.status(404).json({ error: err.message });
+      return res.status(200).json({
+        showComment,
+      });
+    }
+  );
+};
+
 const edit = (req, res) => {
   db.Posts.findById(req.params.id, (err, editPost) => {
     if (err) return res.status(404).json({ error: err.message });
@@ -79,4 +92,5 @@ module.exports = {
   edit,
   update,
   show,
+  comment,
 };
