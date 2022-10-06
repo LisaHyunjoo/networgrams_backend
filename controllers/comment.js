@@ -1,34 +1,38 @@
-const db = require("../models");
+// const db = require("../models");
 
-const insert = (req, res) => {
-  // db.Posts.insertMany({
-  //   _id: 1,
-  //   comment: [
-  //     {
-  //       name: "Daniel",
-  //       comContent: "good job",
-  //     },
-  //   ],
-  // });
-};
+// const create = (req, res) => {
+//   db.Posts.findByIdAndUpdate(
+//     {
+//       _id: req.params.id,
+//       comment: [
+//         {
+//           comContent: req.body.comContent,
+//         },
+//       ],
+//     },
+//     (err, createdComment) => {
+//       if (err) return res.status(404).json({ error: err.message });
+//       return res.status(200).json(createdComment);
+//     }
+//   );
+// };
 
-const update = (req, res) => {
-  db.Posts.updateMany(
-    {},
-    {
-      $set: req.body,
-    },
-    {
-      new: true,
-    },
-    (err, updatedPost) => {
-      if (err) return res.status(404).json({ error: err.message });
-      return res.status(200).json(updatedPost);
-    }
-  );
-};
+// const update = (req, res) => {
+//   db.Posts.updateMany(
+//     {},
+//     {
+//       $set: req.body,
+//     },
+//     {
+//       new: true,
+//     },
+//     (err, updatedComment) => {
+//       if (err) return res.status(404).json({ error: err.message });
+//       return res.status(200).json(updatedComment);
+//     }
+//   );
+// };
 
-module.exports = {
-  insert,
-  update,
-};
+// module.exports = {
+//   create,
+// };

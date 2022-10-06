@@ -11,9 +11,9 @@ router.get("/post", ctrls.posts.index);
 router.post("/post", ctrls.posts.create);
 router.delete("/post/:id", ctrls.posts.destroy);
 router.get("/post/:id", ctrls.posts.show);
-router.get("/post/:id/comment", ctrls.comment.insert);
-router.get("/post/:id/comment", ctrls.comment.update);
 router.get("/post/:id/edit", ctrls.posts.edit);
 router.put("/post/:id", ctrls.posts.update);
 
+// router.post("/post/:id/comment", ctrls.comment.create);
+// router.put("/post/:id/comment", ctrls.comment.update);
 module.exports = router;

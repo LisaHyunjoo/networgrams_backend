@@ -30,12 +30,17 @@ const destroy = (req, res) => {
   });
 };
 
-const show = (req, res) => {
+const show = async (req, res) => {
+  // const comment = await db.Posts.insertMany({
+  //   _id: req.params.id,
+  //   comment: [{ content: req.params.content }],
+  // });
+
   db.Posts.findById(req.params.id, (err, showPost) => {
     if (err) return res.status(404).json({ error: err.message });
-    console.log(showPost);
     return res.status(200).json({
       showPost,
+      comment: showPost.comment,
     });
   });
   // db.Posts.insertMany(
