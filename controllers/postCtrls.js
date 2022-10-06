@@ -1,4 +1,3 @@
-const { comments } = require(".");
 const db = require("../models");
 
 const index = (req, res) => {
@@ -32,34 +31,29 @@ const destroy = (req, res) => {
 };
 
 const show = (req, res) => {
-  // try {
-  //   const showPost = await db.Posts.findById(req.params.id);
-
-  //   populate().exec();
-
-  //   res.status(200).json(showPost);
-  // } catch (err) {
-  //   res.status(404).json(err);
-  // }
-
   db.Posts.findById(req.params.id, (err, showPost) => {
     if (err) return res.status(404).json({ error: err.message });
+    console.log(showPost);
     return res.status(200).json({
       showPost,
     });
   });
-};
-
-const comment = (req, res) => {
-  db.Posts.insertMany(
-    { id: req.params.id, comment: [{ type: String }] },
-    (err, showComment) => {
-      if (err) return res.status(404).json({ error: err.message });
-      return res.status(200).json({
-        showComment,
-      });
-    }
-  );
+  // db.Posts.insertMany(
+  //   {
+  //     comment: [
+  //       {
+  //         name: req.params.name,
+  //         comContent: [req.params.comContent],
+  //       },
+  //     ],
+  //   },
+  //   (err, showComment) => {
+  //     if (err) return res.status(404).json({ error: err.message });
+  //     return res.status(200).json({
+  //       showComment,
+  //     });
+  //   }
+  // );
 };
 
 const edit = (req, res) => {
@@ -92,5 +86,4 @@ module.exports = {
   edit,
   update,
   show,
-  comment,
 };

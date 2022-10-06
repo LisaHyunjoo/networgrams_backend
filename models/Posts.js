@@ -4,7 +4,7 @@ const commentSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  content: {
+  comContent: {
     type: String,
     required: true,
   },
@@ -19,6 +19,7 @@ const postSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  comment: [commentSchema],
 
   content: {
     type: String,
@@ -29,7 +30,7 @@ const postSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-  }
+  },
 });
 
 const Posts = mongoose.model("Posts", postSchema);
