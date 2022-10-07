@@ -31,6 +31,7 @@ const postSchema = new mongoose.Schema({
   title: {
     type: String,
   },
+  date: Date,
 });
 
 const Posts = mongoose.model("Posts", postSchema);
