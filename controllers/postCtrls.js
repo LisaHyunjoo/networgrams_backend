@@ -30,7 +30,19 @@ const destroy = (req, res) => {
   });
 };
 
-const show = async (req, res) => {
+const showComment = (req, res) => {
+  db.Posts.findById(req.params.id)
+    .select("comment")
+    .exec((err, comment) => {
+      if (err) return res.status(404).json({ error: err.message });
+      return res.status(200).json({
+        comment,
+        comContent: comment.comContent,
+      });
+    });
+};
+
+const show = (req, res) => {
   // const comment = await db.Posts.insertMany({
   //   _id: req.params.id,
   //   comment: [{ content: req.params.content }],
@@ -40,7 +52,6 @@ const show = async (req, res) => {
     if (err) return res.status(404).json({ error: err.message });
     return res.status(200).json({
       showPost,
-      comment: showPost.comment,
     });
   });
   // db.Posts.insertMany(
@@ -91,4 +102,5 @@ module.exports = {
   edit,
   update,
   show,
+  showComment,
 };
