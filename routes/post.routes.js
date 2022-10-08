@@ -11,6 +11,7 @@ router.get("/post", ctrls.posts.index);
 router.post("/post", ctrls.posts.create);
 router.delete("/post/:id", ctrls.posts.destroy);
 router.get("/post/:id", ctrls.posts.show);
+router.post("/post/:id", ctrls.posts.showComment);
 router.get("/post/:id/edit", ctrls.posts.edit);
 router.put("/post/:id", ctrls.posts.update);
 

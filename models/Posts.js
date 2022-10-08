@@ -19,7 +19,7 @@ const postSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  comment: [commentSchema],
+  comment: commentSchema,
 
   content: {
     type: String,
